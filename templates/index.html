@@ -1,24 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/static/styles.css">
-        <title>Joy's Profile</title>
-    </head>
-    <body>
-        <div class="container">
-            <header>
-                <nav>
-                    <a href="/">Home</a>
-                    <a href="/gallery">Gallery</a>
-                    <a href="/gallery">Gallery</a>
-                    <a href="/contact">Contact</a>
-                </nav>
-            </header>
-            <main class="home-main">
+{% extends 'layout.html' %}
 
-            </main>
+{% block mainContent %}
+    <main class="home-main">
+        <div class="content-box">
+            <h1>
+                JOY's Profile
+            </h1>
+            <h2 class="h2">
+                Hello, world!
+            </h2>
+            <p class="p">
+                My name is JOY, I'm a female Shih Tzu whose purpose in life is to bring joy to people!
+            </p>
+            <p class="p" id="pesp">
+                I'm a companion dog who loves to stay close to people to receive caress and for them to play with me. I have this toy called Perry that I looove to bite!
+            </p>
         </div>
-    </body>
-</html>
+    </main>
+{% endblock %}

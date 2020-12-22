@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>Contact Joy</title>
+{% endblock %}
+
+{% block mainContent %}
+    <main class="home-main">
+        <div class="content-box">
+            <h1>
+                Give me your email and I'll contact you!
+            </h1>
+            <form onsubmit="greet(); return false;">
+                <input type="text" id="name">
+                <input type="submit">
+            </form>
+            <div id="result">
+                Hello!
+            </div>
+            <img class="photo" src="/static/joy8.jpg" alt="joy's picture 8"/>
+        </div>
+    </main>
+
+    <script>
+        function greet()
+            {
+                let name = document.querySelector('#name').value;
+                if (name === '')
+                {
+                    document.querySelector('#result').innerHTML = "Please, let's be friends!";
+                    return false;
+                }
+                document.querySelector('#result').innerHTML = 'Nice! I will contact you by your ' + name + ' email!';
+            }
+    </script>
+{% endblock %}

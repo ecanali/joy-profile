@@ -17,9 +17,28 @@
 
             <h1>Upload new image</h1>
             <form method="post" enctype="multipart/form-data">
-                <input type="file" name="file">
+                <input type="file" id="file" name="file" accept="image/png, image/jpeg, image/jpg" required>
                 <input type="submit" value="Upload">
             </form>         
         </div>
     </main>
+
+    <script>
+        // prevents user upload any file except .jpeg/.jpg/.png
+        const file = document.getElementById('file')
+
+        file.onchange = function(e) {
+            const ext = this.value.match(/\.([^\.]+)$/)[1]
+
+            switch (ext) {
+                case 'jpg':
+                case 'jpeg':
+                case 'png':
+                break
+                default:
+                alert('File extension not allowed!')
+                this.value = ''
+            }
+        }
+    </script>
 {% endblock %}

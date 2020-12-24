@@ -11,15 +11,16 @@
                 Some pics of me!
             </h1>
 
-            {# {% for image in images %}
-                <img class="photo" src="joy2.jpeg" alt="joy's picture 1"/>
-            {% endfor %} #}
-
             <h1>Upload new image</h1>
             <form method="post" enctype="multipart/form-data">
                 <input type="file" id="file" name="file" accept="image/png, image/jpeg, image/jpg" required>
+                <input type="text" name="title" placeholder="Title" required>
                 <input type="submit" value="Upload">
-            </form>         
+            </form>   
+
+            {% for file in files %}
+                <img class="photo" width="800px" src="{{ file.image }}" alt="{{ file.title }}"/>
+            {% endfor %}      
         </div>
     </main>
 

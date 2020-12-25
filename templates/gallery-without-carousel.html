@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>Joy's pics</title>
+{% endblock %}
+
+{% block mainContent %}
+    <div class="home-background"></div>
+    
+    <main class="pages-main">
+        <div class="content-box">
+           
+           <h1>
+                Some pics of me!!
+            </h1>
+
+            <h1>Upload new image</h1>
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" id="file" name="file" accept="image/png, image/jpeg, image/jpg" required>
+                <input type="text" name="title" placeholder="Title" required>
+                <input type="submit" value="Upload">
+            </form>   
+
+            {% for file in files %}
+                <img class="photo" width="800px" src="{{ file.image }}" alt="{{ file.title }}"/>
+            {% endfor %}      
+        </div>
+    </main>
+
+    <script>
+        // prevents user upload any file except .jpeg/.jpg/.png
+        const file = document.getElementById('file')
+
+        file.onchange = function(e) {
+            const ext = this.value.match(/\.([^\.]+)$/)[1]
+
+            switch (ext) {
+                case 'jpg':
+                case 'jpeg':
+                case 'png':
+                break
+                default:
+                alert('File extension not allowed!')
+                this.value = ''
+            }
+        }
+    </script>
+{% endblock %}

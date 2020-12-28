@@ -10,7 +10,7 @@
     <main class="pages-main">
         <div class="contact-content-box">
             <div class="image-side">
-                <img class="photo" src="/static/assets/joy2.png" alt="Joy's wants to talk"/>
+                <img class="photo" src="/static/assets/joy2.png" alt="Joy wants to talk"/>
             </div>
 
             <div class="content-side">
@@ -18,8 +18,8 @@
                     <h1>
                         Give me your email and I'll contact you!
                     </h1>
-                    <form onsubmit="greet(); return false;">
-                        <input type="email" id="email" placeholder="example@example.com" required>
+                    <form method="post" onsubmit="greet()">
+                        <input type="email" name="email" id="email" placeholder="example@example.com" required>
                         <input type="submit">
                     </form>
                     <div id="result">

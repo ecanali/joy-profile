@@ -5,17 +5,15 @@ function greet() {
         document.querySelector('#result').innerHTML = "Please, let's be friends!"
         return false
     } else {
-        document.querySelector('#result').innerHTML = `Nice! I'll contact you by your ${userEmail} email`
+        alert(`Nice! I'll contact you by your ${userEmail} email`)
     }
 }
 
 // prevents user upload any file except .jpeg/.jpg/.png
 const file = document.getElementById('file')
-
 if (file) {
     file.onchange = function(e) {
         const ext = this.value.match(/\.([^\.]+)$/)[1]
-    
         switch (ext) {
             case 'jpg':
             case 'jpeg':

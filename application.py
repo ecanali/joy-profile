@@ -8,17 +8,21 @@ UPLOAD_FOLDER = './static/gallery'
 app = Flask(__name__)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///gallery.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize the database
 db = SQLAlchemy(app)
 
-# Create db model
+# Create database models
 class Gallery(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
     image = db.Column(db.String(200), nullable=False)
+
+class Contact(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(200), nullable=False)
 
 @app.route('/')
 def index():
@@ -47,6 +51,17 @@ def upload_file():
 def about():
     return render_template('about.html')
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('contact.html')
+    if request.method == 'POST':
+        email = request.form['email']
+        # Push to database
+        new_email = Contact(email=email)
+        try:
+            db.session.add(new_email)
+            db.session.commit()
+            return redirect('/contact')
+        except:
+            return "There was an error adding the email..."
+    else:
+        return render_template('contact.html')

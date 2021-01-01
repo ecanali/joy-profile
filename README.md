@@ -67,10 +67,10 @@ Meet the beloved *Joy*, the web application is made in Flask and presents her wi
 
 ```bash
 
-# Star and Clone this repository
+# In a terminal/cmd window, clone this repository
 $ git clone https://github.com/ecanali/joy-profile
 
-# Access the project folder by the terminal/cmd
+# Access the project folder
 $ cd joy-profile
 
 # Activate the virtual environment

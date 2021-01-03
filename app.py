@@ -3,10 +3,10 @@ from flask import Flask, redirect, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import desc
 
-UPLOAD_FOLDER = './static/gallery'
 
 app = Flask(__name__)
 
+UPLOAD_FOLDER = './static/gallery'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

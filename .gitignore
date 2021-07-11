@@ -2,3 +2,6 @@
 __pycache__/
 to-do.txt
 .DS_Store
+*.pyc
+instance/
+venv/
